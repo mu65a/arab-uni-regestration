@@ -6,7 +6,7 @@ namespace arsb_uni
     {
         Button new_student = new Button();
         Button current_student = new Button();
-        
+        int incremID = 1000;
         public Form1()
         {
             InitializeComponent();
@@ -328,6 +328,7 @@ namespace arsb_uni
             submet.BackColor = Color.Blue;
             submet.ForeColor = Color.White;
             submet.Click += new EventHandler(submet_click);
+            f1.AcceptButton = submit;
             f1.Controls.Add(submet);
 
             //close button
@@ -348,15 +349,10 @@ namespace arsb_uni
         private void submet_click(object sender,EventArgs e)
         {
             
-            MessageBox.Show ( "regestration done ");
-            Random id_stu = new Random();
-            int studentId = id_stu.Next(100000, 999999); // أرقام من 6 خانات
-            string formattedId = $"ARSB-{DateTime.Now:yy}-{studentId}";
-
-            string message = $"Registration Successful!\n\n" +
-                            $"Your Student ID: {formattedId}\n" +
-                            $"This ID has been sent to your email.\n" +
-                            "Please save this number for future reference.";
+           int formattedId = incremID + 1;
+ MessageBox.Show($"Registration Successful!\n\n" +
+                $"Your Student ID: {formattedId}\n" +
+                $"This ID has been sent to your email.");
 
         }
 
